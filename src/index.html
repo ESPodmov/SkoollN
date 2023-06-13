@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta NAME="Skooll NFT. What?"
+          CONTENT="Skooll is a collection of 8888 unique NFTs. Your Skooll is a real asset that gives you the opportunity to earn through the right strategy and luck. Each Skooll unlocks additional benefits the longer you hold them. Become part of our community, grow with us. Welcome to the Skooll world!">
+    <meta charset="UTF-8">
+    <title>Skooll</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/styles/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" sizes="16x16" href="sources/Logo/LogoIcon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="sources/Logo/LogoIcon.svg" type="image/svg+xml">
+</head>
+<body id="s">
+
+<div style="position:fixed;width: 100%; height: 100%;top: 0;left: 0; background-color: #181A1C; z-index: 100"
+     id="pre-loader">
+    <video style="width: 100%; height: 100%;" src="./sources/load2.mp4" autoplay muted loop></video>
+</div>
+
+<div class="navigation">
+    <a class="logo" style="margin-left: 0">
+        <a href="#s" class="logo"><img class="logo-img" src="./sources/Logo/LogoF.svg"/><img class="circles" href="#s"
+                                                                                             src="sources/Logo/Circles.svg"
+                                                                                             style="cursor: pointer;"/>
+        </a>
+        <div class="line"></div>
+    </a>
+    <div class="t-container">
+        <div class="e-s-line" style="padding: 0;margin-left: 9.5%">
+            <a href="#nft" style="position: relative" class="navigation-title">NFT</a>
+        </div>
+        <div class="e-s-line" style="padding: 0;margin-left: 9.5%">
+            <a href="#rules" class="navigation-title">Rules</a>
+        </div>
+        <div class="e-s-line" style="padding: 0;margin-left: 9.5%">
+            <a href="#roadmap" class="navigation-title">Roadmap</a>
+        </div>
+        <div class="e-s-line" style="padding: 0;margin-left: 9.5%">
+            <a href="#faqs" class="navigation-title">FAQs</a>
+        </div>
+    </div>
+
+    <button class="small-wallet wal" style="cursor: pointer">
+        <img style="height: 1.5vw; pointer-events: none; position: absolute; top: 14%; left: 17%"
+             src="./sources/walletSign.svg"/>
+    </button>
+</div>
+
+<div id="donat-window" class="donation">
+    <p id="in-don">You can support our project <br>Just transfer the cryptocurrency that you can donate (ETH, BTC, USDT,
+        BNB, SOL, BUSD, MATIC) to this account:<br><br>0xbE0b964B554Dd5E0eA162F9312710471cdb6C0A5</p>
+</div>
+
+<div class="nav" id="wal-sec"></div>
+<div class="nav" id="mint-sec"></div>
+<div class="nav" id="donat-sec"></div>
+
+
+<div class="sel-wal-sec">
+    <div class="img-container" style=" position: absolute">
+        <img src="./sources/walletConnect/triangle.png"
+             style="width: 1.5vw; height: 0.8vw; position: absolute;top: -2.07vw; left: 15.8vw"/>
+    </div>
+    <img src="./sources/walletLogo.svg" id="walletLogo"
+         style="width: 25vw; margin: auto; height: auto; filter: opacity(0.2); position: relative; left: -2.7vw; z-index: 0; top: 1vw"/>
+    <div class="btn-container" style="top: -25vw" id="userLine">
+        <div class="btn-container" style="display: flex">
+            <img src="./sources/user.svg" style="height: 2.5vw; width: auto; position: relative"/>
+            <h1>My wallet</h1>
+        </div>
+        <div class="wal-sec-text">
+            Connect with one of our available wallet providers.
+        </div>
+        <div class="btn-container" style="top: 1vw">
+            <button id="metaMask">
+                <div class="btn-container" style="display: flex">
+                    <img src="./sources/walletConnect/MetaMaskImg.svg"/>
+
+                    <a>MetaMask</a>
+                    <div class="r-t-l">popular</div>
+                </div>
+            </button>
+            <button id="coinBase" style="top: 3.8vw">
+                <div class="btn-container" style="display: flex">
+                    <img src="./sources/walletConnect/CoinBaseWalletImg.svg"/>
+                    <a>CoinBase Wallet</a>
+                </div>
+            </button>
+            <button style="opacity: 0.7; top: 6.6vw" disabled>
+                <div class="btn-container" style="display: flex">
+                    <img src="./sources/walletConnect/WalletConnectImg.svg"/>
+                    <a>WalletConnect</a>
+                    <div class="r-t-l" style="right: -3.6vw">not available</div>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="mint-w">
+    <div class="countdown"></div>
+    <div class="m-in">
+        <div style="display: flex;">
+            <div class="m-in-b">
+                <button id="decBtn" class="m-i-d">−</button>
+                <input id="mintAmount" class="m-input" placeholder="1"/>
+                <button id="incBtn" class="m-i-d">+</button>
+            </div>
+
+            <div class="m-max-cont">
+                <button id="setMaxBtn" class="m-i-m-b">MAX</button>
+                <div class="m-max-t">MAX:5</div>
+            </div>
+
+        </div>
+    </div>
+    <div class="m-t-cont">
+        <div class="m-aware">The number of nfts you can buy per transaction is limited.</div>
+        <div style="display: flex">
+            <div class="m-main-t" id="priceValue">Price per mint:40 matic</div>
+            <div style="position: relative; left: 32.5%; display: flex; flex-direction: column; align-items: flex-end">
+                <div class="m-main-t" id="supply" style="float: right">Supply:8888</div>
+                <div class="m-main-t" id="totalPrice" style="float: right; top:0.5vw">Total: 40 Matic</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-b-c">
+        <button id="mintBtn" class="m-b" disabled>Mint</button>
+        <div id="trnsInfo" class="m-b-t-tr"></div>
+    </div>
+</div>
+
+<div class="video-cont" id="video-cont">
+    <video id="homeVideo" src="./sources/motion2.mp4"
+           style="position: absolute; width: 100%; height: auto; z-index: -1; pointer-events: none;"
+           muted autoplay loop></video>
+    <img id="homeImg" class="homeImg" src="./sources/homeImg.png"/>
+    <div class="vidGr"></div>
+</div>
+
+<div class="img-container" style="float: right; top: 16vw; right: 4.7vw; position:absolute;">
+    <a href="https://www.instagram.com/skoollnft" target="_blank" class="btn-container socials">
+        <img src="./sources/inst.svg" style="width: 2.2vw"/>
+    </a>
+    <a class="btn-container socials" target="_blank" href="https://discord.gg/A67mhBmThy" style="top: 3vw">
+        <img src="./sources/discord.svg" style="width: 2.2vw"/>
+    </a>
+    <a href="https://twitter.com/skool_l" target="_blank" class="btn-container socials" style="top: 6vw">
+        <img src="./sources/Twitter.svg" style="width: 2.2vw"/>
+    </a>
+</div>
+
+<div class="btn-container main-header-cont">
+    <div class="header-main" id="participate">
+        <div class="h" style="position:absolute; top: 0.13vw; left: -0.15vw;color: #999999">POWERFUL</div>
+        <div class="h" style="position:absolute; top: 0.08vw; left: -0.09vw;color: #999999">POWERFUL</div>
+        <div style="position: relative">POWERFUL</div>
+        <div class="h" style="position:absolute; top: 5.36vw; left: -0.15vw;color: #999999">SKOOLL</div>
+        <div class="h" style="position:absolute; top: 5.31vw; left: -0.09vw;color: #999999">SKOOLL</div>
+
+        <a style="position: relative">SKOOLL</a>
+        <br>
+        <div class="h" style="position:absolute; top: 10.62vw; left: -0.15vw;color: #999999">NFT FOR</div>
+        <div class="h" style="position:absolute; top: 10.57vw; left: -0.09vw;color: #999999">NFT FOR</div>
+        <a style="position: relative">NFT FOR</a>
+        <br>
+        <div class="h" style="position:absolute; top: 15.88vw; left: -0.15vw;color: #999999">EVERYONE</div>
+        <div class="h" style="position:absolute; top: 15.83vw; left: -0.09vw;color: #999999">EVERYONE</div>
+        <a style="position: relative">EVERYONE</a>
+    </div>
+</div>
+
+
+<div class="btn-container main-btn-cont" style="left: 20.5vw; top: 38.5vw;">
+
+    <button class="big-wallet disabledBtn" style="left: 19vw">
+        <img class="image-2" src="./sources/openSeaLogo.svg"/>
+        <h1 class="title ">BUY NFT</h1>
+    </button>
+
+    <button class="big-wallet wal-hov" id="mintOpenBtn">
+        <img class="plus-img" src="./sources/sign-in.svg"/>
+        <h1 class="title" style="left: 42%;">MINT</h1>
+    </button>
+</div>
+
+
+<div class="f-h">
+    <div class="btn-container"
+         style="top: 57vw; align-self: center; text-align: center; transform: translateX(-50%); left: 50%; width: 75%">
+        <div class="w-i-header needs-animation">WHAT IS
+            <a class="text-underline">SKOOLL</a> NFT?
+        </div>
+        <br>
+        <div class="w-i-title needs-animation">
+            <a class="w-i-title trnsf" style="font-weight: bold; margin-left: 0; top: 0">SKOOLL</a>
+            NFT is a new concept that gives you the opportunity to earn money passively with just one token.
+        </div>
+
+    </div>
+
+    <div style="width: 100%; height: fit-content; position: relative;top: 65vw">
+        <div class="btn-container join-us-cont" style="text-align: center; width: 100%; padding: 0; margin:0; ">
+            <img src="./sources/JoinUs_back.webp" width="1920" class="lazyload" loading="lazy"
+                 style="width: 100%;margin: 0;pointer-events: none; position: relative; top: -10vw"/>
+            <img src="./sources/JoinUs.svg" class="lazyload joins-us-text" loading="lazy"/>
+            <br>
+            <button class="join-us-btn" id="join">Join Community</button>
+        </div>
+
+        <div class="mobile-socials">
+            <a href="https://www.instagram.com/skoollnft" target="_blank" class="btn-container mob-soc">
+                <img src="./sources/instMob.png" style="width: 10vw"/>
+            </a>
+            <a href="https://twitter.com/skool_l" target="_blank" class="btn-container mob-soc">
+                <img src="./sources/twitterMob.png" style="width: 10vw"/>
+            </a>
+            <a class="btn-container mob-soc" target="_blank" href="https://discord.gg/A67mhBmThy">
+                <img src="./sources/diskMob.png" style="width: 10vw"/>
+            </a>
+            <a target="_blank" href="https://mail.google.com/mail/?view=cm&source=mailto&to=skoollnft@gmail.com"
+               class="btn-container mob-soc">
+                <img src="./sources/mailMob.png" style="width: 10vw"/>
+            </a>
+        </div>
+
+
+        <div class="btn-container join-us-cont"
+             style="align-self: center; text-align: center; top: -15vw; transform: translateX(-50%); left: 50%">
+            <div class="b-e-header needs-animation">Buy and Earn</div>
+            <br>
+            <div class="w-i-title needs-animation">
+                NFT <a class="w-i-title trnsf" style="font-weight: bold; margin-left: 0; top: 0">SKOOLL</a> collection
+                should give you the feeling that you are holding not just a token that represents <br> nothing, but a
+                real asset.
+            </div>
+        </div>
+
+        <div class="btn-container features-cont">
+
+            <div class="earn needs-curtain-anim">
+                <img src="./sources/EarnImg.svg" class="lazyload earn-img" loading="lazy"/>
+                <div class="features-header features-green">EARN SKOOLL NFT</div>
+                <div class="features-text">Mint NFT on this website. The more NFT
+                    you have, the more chances you have to<br> earn. You can
+                    also sell NFTs on the marketplace and earn money.
+                </div>
+            </div>
+
+            <div class="hold needs-curtain-anim" style="margin-left: 2.5%">
+                <img src="./sources/HoldImg.svg" class="lazyload hold-img" loading="lazy"/>
+                <div class="features-header features-blue" style="top: 2.3%">HOLD SKOOLL NFT</div>
+                <div class="features-text" style="top: 4.6%">The more NFTs you hold, the more profit it makes.
+                    Each Skooll is a pass to participate in future and current events.
+                </div>
+            </div>
+
+        </div>
+        <div class="income needs-curtain-anim"
+             style="text-align: center; margin: 0vw auto; position: relative; top: -10vw">
+            <img src="./sources/IncomeImg.svg" class="lazyload income-img" loading="lazy"/>
+            <div class="features-header features-yellow" style="left: 0">GET PASSIVE INCOME</div>
+            <div class="features-text" style="left: 0; padding-left: 2%; padding-right: 2%">Each month a percentage of
+                that month's sales will be raffled off between NFT owners. In other words, the higher the monthly
+                trading volume of the Skooll nft collection, the more money will be raffled off.
+            </div>
+        </div>
+
+        <div class="h">
+            <div class="img-container">
+                <img src="./sources/FeaturesBackground.webp" height="1259" class="lazyload" loading="lazy"
+                     style="position: relative; height: 60vw; top: -61.5vw;width: auto; transform: translateX(-50%); left: 48vw; pointer-events: none; z-index: -1; filter: blur(2px)"/>
+            </div>
+
+            <div class="btn-container" id="nft"
+                 style="text-align: center; margin: 0 auto; position: relative; top: -3vw">
+                <img src="./sources/BackForBuySection.webp" height="943" class="lazyload" loading="lazy"
+                     style="height: 50vw; pointer-events: none; filter: blur(0.25vw)"/>
+                <div class="b-s-text" style="top: -41vw">The token can be bought and resold on OpenSea</div>
+                <div>
+                    <button class="buy-btn disabledBtn">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="rules-section-cont">
+            <div class="btn-container" id="rules" style="width: 80%; transform: translateX(-50%); left: 50%">
+
+                <div class="btn-container rules-flex-cont">
+
+                    <div class="rules" id="rulesPart">
+                        <div class="rules-text rules-text-b rules-third">
+                            Rules
+                        </div>
+                        <div class="rules-text rules-text-b rules-s">
+                            Rules
+                        </div>
+                        <div class="rules-text rules-text-b rules-f">
+                            Rules
+                        </div>
+                        <div class="rules-text rules-main-t">
+                            Rules
+                        </div>
+                    </div>
+
+                    <div class="rules nft" id="nftPart">
+                        <div class="rules-text nft-text-b nft-t">
+                            NFT
+                        </div>
+                        <div class="rules-text nft-text-b nft-s">
+                            NFT
+                        </div>
+                        <div class="rules-text nft-text-b nft-f">
+                            NFT
+                        </div>
+                        <div class="rules-text nft-main-t">
+                            NFT
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rules rules-main-block" id="mainPart">
+                    <div class="btn-container" style="margin: 0 auto; top: 3.2vw">
+                        <div class="team-h rules-t" style="margin-top: 0">You have reached the rules definition stage,
+                            the
+                            idea is very simple - mint and hold.<br> The more NFT you have, the greater the chance of
+                            additional
+                            profit.
+                        </div>
+
+                        <div class="team-h rules-t" style="margin-top: 1vw">
+                            The mint price per Skooll is 55 matic and only 5 NFTs can be purchased per transaction
+                        </div>
+
+                        <div class="team-h rules-t">
+                            Every month since the first 2000 NFTs will be minted, we will give away 50% <br>of the
+                            proceeds to Skooll holders.
+                            The 200 lucky<br> winners will each receive 0.25% of the proceeds from our team.
+                        </div>
+
+                        <div class="team-h rules-t">But there are some very special NFTs in the Skooll collection. They
+                            have a rare, mythical and legendary<br> rarity. And because these NFTs are highly unique,
+                            they
+                            will
+                            have special privileges.<br> Each of the rare ones will bring the owner 1%
+                            of the revenue, each of the mythical ones 3%,<br> and the legendary one 5%.
+                        </div>
+
+                        <div class="team-h rules-t">In other words, every month 65% of the money earned by the team will
+                            be
+                            raffled<br> off among all Skooll owners.
+                        </div>
+
+                        <div class="team-h rules-t">
+                            Each Skooll asset is a pass to participate in future events.
+                        </div>
+                        <div class="team-h rules-t">
+                            Welcome to the world of Skooll
+                        </div>
+                        <div class="welc"></div>
+                        <div class="img-container rules-logo" style="position: absolute; bottom: 5vw; right: 8vw">
+                            <img src="./sources/logoRules.svg" class="lazyload" loading="lazy"
+                                 style="width: 10vw; height: auto"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="desk" class="desk">
+            <div id="roadmap" class="r-m-cont">
+                <div style="position:absolute; width: 100%">
+                    <img src="./sources/RoadMap/r-m-background.webp" width="1920" class="lazyload" loading="lazy"
+                         style="width: 100%; height: auto"/>
+                </div>
+
+                <div style="position:relative; top: 8.5vw">
+                    <div class="img-container" style="margin: 0 auto;">
+                        <img src="./sources/RoadMap/r-m-skeleton.svg" class="lazyload" loading="lazy"
+                             style="height: 108vw; transform: translateX(-49%)"/>
+                        <div>
+                            <div class="r-m-for-img"
+                                 style="top: 12vw; left: -34.3vw;">
+                                <img src="./sources/RoadMap/r-m-first.webp" width="570" class="r-m-img lazyload"
+                                     loading="lazy"/>
+                                <div style="position: absolute; left: 1vw; bottom: 0.8vw">
+                                    LOOKING FOR THE SOURCE <br>OF THE IDEA
+                                </div>
+                            </div>
+                            <div class="r-m-for-img"
+                                 style="top: 25vw; left: 8.4vw">
+                                <img src="./sources/RoadMap/r-m-second.webp" width="570" class="r-m-img lazyload"
+                                     loading="lazy"/>
+                                <div style="position: absolute; left: 1.2vw; bottom: 1.3vw">
+                                    SELECTION OF MATERIALS<br> AND REFERENCES
+                                </div>
+                            </div>
+                            <div class="r-m-for-img"
+                                 style="top: 38.5vw; left: -34.8vw">
+                                <img src="./sources/RoadMap/r-m-third.webp" width="570" class="r-m-img lazyload"
+                                     loading="lazy"/>
+                                <div style="position: absolute; left: 0.7vw; bottom: 1.8vw">
+                                    MODIFY SKULLS TRAITS
+                                </div>
+                            </div>
+                            <div class="r-m-for-img"
+                                 style="top: 55vw; left: 9vw">
+                                <img src="./sources/RoadMap/r-m-fourth.webp" width="570" class="r-m-img lazyload"
+                                     loading="lazy"/>
+                                <div style="position: absolute; left: 0.8vw; bottom: 0.7vw">
+                                    EVERYTHING YOU NEED<br> FOR YOUR EYES
+                                </div>
+                            </div>
+                            <div class="r-m-for-img"
+                                 style="top: 83.5vw; transform: translateX(-50%)">
+                                <img src="./sources/RoadMap/r-m-fifth.webp" width="552" class="r-m-img lazyload"
+                                     loading="lazy"/>
+                            </div>
+                            <div class="r-m-for-img r-m-sixth">
+                                <img src="./sources/RoadMap/r-m-sixth.webp" width="393" class="r-m-img lazyload"
+                                     loading="lazy"/>
+                                <div class="img-container" style="margin: auto auto;">
+                                    <img src="./sources/RoadMap/dots.svg" class="lazyload" loading="lazy"
+                                         style="position: relative; width: 12vw; transform: translateX(-50%); top: 2.35vw"/>
+                                </div>
+                            </div>
+
+                            <div class="r-m-for-img r-m-left" style="top: 31vw; left: -30vw">
+                                <p>The next stage was to work on the idea, the beautiful visuals, the variation, the
+                                    clarity.</p>
+                            </div>
+                            <div class="r-m-for-img r-m-left" style="top: 59.5vw; left: -30.8vw">
+                                <p>We started building social media and realised the need for the website as a platform
+                                    for NFT minting.</p>
+                            </div>
+                            <div class="r-m-for-img r-m-left" style="top: 74.5vw; left: -30.5vw">
+                                <p>Launch of the website, start of sales and raffles, bringing our idea to life.</p>
+                            </div>
+
+                            <div class="r-m-for-img r-m-left r-m-right" style="top: 18vw; left: 2.1vw">
+                                <p>We were looking for something fundamental, widespread and progressive, so we settled
+                                    on the skeleton concept.</p>
+                            </div>
+                            <div class="r-m-for-img r-m-left r-m-right" style="top: 47vw; left: 2.35vw">
+                                <p>Once we had achieved our goals, we kept on looking for improvements to our idea.</p>
+                            </div>
+                            <div class="r-m-for-img r-m-left r-m-right" style="top: 101vw; left: 7.35vw; width: 16vw">
+                                <p style="top: 50%; left: 50%; transform: translate(-50%, -47%); padding: 0">Coming
+                                    soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container team-main-cont" id="team">
+
+                <div style="width: 100%; height: fit-content; overflow: hidden">
+                    <div style="width: 100%; left: -5.5vw; position: relative">
+                        <div class="team-h"
+                             style="font-size: 40.76vw; font-weight: bold; color: #7C7C7C; filter: blur(0.09vw) opacity(0.8); letter-spacing: -2vw; user-select: none">
+                            Team
+                        </div>
+                    </div>
+                </div>
+
+                <div style="position: absolute; top: 6vw; transform: translate(-50%); left: 50%">
+                    <div class="rls-cont first-line needs-curtain-anim" style="top: 1.5vw">
+                        <div class="btn-container">
+                            <div class="team-container">
+                                <img style="width: 110%; position: relative; top: -5%; left: -5%; height: auto" src="./sources/205.webp" class="lazyload"
+                                     loading="lazy"/>
+                            </div>
+                            <div class="team-h">lassun</div>
+                            <div class="team-h team-a">Marketing Advisor</div>
+                        </div>
+
+                        <div class="btn-container">
+                            <div class="team-container">
+                                <img style="width: 110%; position: relative; top: -5%; left: -5%; height: auto" src="./sources/8890.webp" class="lazyload"
+                                     loading="lazy"/>
+                            </div>
+                            <div class="team-h">Nemastee</div>
+                            <div class="team-h team-a">Product Engineer</div>
+                        </div>
+
+                        <div class="btn-container">
+                            <div class="team-container">
+                                <img style="width: 110%; position: relative; top: -5%; left: -5%; height: auto" src="./sources/8889.webp" class="lazyload"
+                                     loading="lazy"/>
+                            </div>
+                            <div class="team-h">VOLiSEE</div>
+                            <div class="team-h team-a">Product Engineer</div>
+                        </div>
+
+                        <div class="btn-container">
+                            <div class="team-container">
+                                <img style="width: 110%; position: relative; top: -5%; left: -5%; height: auto" src="./sources/413.webp" class="lazyload"
+                                     loading="lazy"/>
+                            </div>
+                            <div class="team-h">Nęelys</div>
+                            <div class="team-h team-a">Advisor</div>
+                        </div>
+                    </div>
+
+                    <div class="rls-cont second-line needs-curtain-anim" style="top: 3vw">
+                        <div class="btn-container">
+                            <div class="team-container">
+                                <img style="width: 110%; position: relative; top: -5%; left: -5%; height: auto" src="./sources/78.webp" class="lazyload"
+                                     loading="lazy"/>
+                            </div>
+                            <div class="team-h">Bohdan</div>
+                            <div class="team-h team-a">Website UI/UX</div>
+                        </div>
+
+                        <div class="btn-container">
+                            <div class="team-container">
+                                <img style="width: 110%; position: relative; top: -5%; left: -5%; height: auto" src="./sources/148.webp" class="lazyload"
+                                     loading="lazy"/>
+                            </div>
+                            <div class="team-h">John(GreGis)</div>
+                            <div class="team-h team-a">Marketing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container faqs-cont" id="faqs">
+
+                <div class="team-h faqs-t">
+                    FAQS
+                </div>
+
+                <div class="btn-container" style="width: 100%;">
+                    <div class="faq-block">
+                        <div class="faq-block-h">What is the total supply of Skooll?</div>
+                        <img src="./sources/plusSignImg.svg" class="plus-sign lazyload" loading="lazy"/>
+                    </div>
+                    <div class="faq-description">
+                        <div class="faq-description-t-b">There are a total of 8,888 NFTs available to mint</div>
+                    </div>
+                </div>
+
+                <div class="btn-container" style="width: 100%;">
+                    <div class="faq-block">
+                        <div class="faq-block-h">How to use NFT Scooll?</div>
+                        <img src="./sources/plusSignImg.svg" class="plus-sign lazyload" loading="lazy"/>
+                    </div>
+                    <div class="faq-description">
+                        <div class="faq-description-t-b">You can hold a NFT and participate in current and future events
+                            and you can also resell NFT
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-container" style="width: 100%;">
+                    <div class="faq-block">
+                        <div class="faq-block-h">How to get money from this project?</div>
+                        <img src="./sources/plusSignImg.svg" class="plus-sign lazyload" loading="lazy"/>
+                    </div>
+                    <div class="faq-description">
+                        <div class="faq-description-t-b">You can resell NFT and if you are lucky you can get a
+                            percentage of the trading volume (more details in the <a href="#rules">rules section</a>)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-container" style="width: 100%;">
+                    <div class="faq-block">
+                        <div class="faq-block-h">Will Skooll NFT have a whitelist?</div>
+                        <img src="./sources/plusSignImg.svg" class="plus-sign lazyload" loading="lazy"/>
+                    </div>
+                    <div class="faq-description">
+                        <div class="faq-description-t-b">There will be no whitelist, but you can win NFT on our <a
+                                href="https://twitter.com/skool_l" target="_blank">twitter</a> and <a
+                                href="https://discord.gg/A67mhBmThy" target="_blank">discord</a></div>
+                    </div>
+                </div>
+
+                <div class="btn-container" style="width: 100%;">
+                    <div class="faq-block">
+                        <div class="faq-block-h">Where can I get the Skooll NFT?</div>
+                        <img src="./sources/plusSignImg.svg" class="plus-sign lazyload" loading="lazy"/>
+                    </div>
+                    <div class="faq-description">
+                        <div class="faq-description-t-b">You can mint NFT on the desktop version of this website. Nft
+                            that have already been
+                            minted can be found on OpenSea
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-container" style="width: 100%;">
+                    <div class="faq-block">
+                        <div class="faq-block-h">Where can I find out about giveaways and events?</div>
+                        <img src="./sources/plusSignImg.svg" class="plus-sign lazyload" loading="lazy"/>
+                    </div>
+                    <div class="faq-description">
+                        <div class="faq-description-t-b">You can find the latest information about our project on our <a
+                                href="https://twitter.com/skool_l" target="_blank">twitter</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="e-s">
+                <div class="img-container" style="position: absolute; top: 6vw;">
+                    <img src="./sources/logoEnd.svg" class="lazyload" loading="lazy"
+                         style="width: 7.27vw; height: auto"/>
+                </div>
+                <div class="e-s-m-l" style="margin: 0 auto">
+                    <div class="e-s-column">
+                        <div>
+                            <div class="e-s-line"><a target="_blank"
+                                                     href="https://mail.google.com/mail/?view=cm&source=mailto&to=skoollnft@gmail.com">Email</a>
+                            </div>
+                            <img class="e-s-img lazyload" loading="lazy" src="./sources/Arrow.svg"/></div>
+                        <div>
+                            <div class="e-s-line"><a target="_blank" href="https://discord.gg/A67mhBmThy">Discord</a>
+                            </div>
+                            <img class="e-s-img lazyload" loading="lazy" src="./sources/Arrow.svg"
+                                 style="left: 0.65vw"/></div>
+
+                        <div>
+                            <div class="e-s-line"><a href="#s">NFT</a></div>
+                            <img class="e-s-img lazyload" loading="lazy" src="./sources/Arrow.svg"
+                                 style="left: -0.7vw"/></div>
+
+                    </div>
+
+                    <div class="e-s-column">
+
+                        <div style="position:relative; left: 1.2vw; top: 1.2vw; font-size: 1.3vw">Treasure</div>
+                        <img src="./sources/EndSectionMap.svg" class="lazyload" loading="lazy" style="width: 21vw"/>
+                        <div class="e-s-line" style="top: 0.5vw; display: block">You can contact us at:
+                            skoollnft@gmail.com
+                        </div>
+                    </div>
+
+                    <div class="e-s-column">
+                        <div>
+                            <div class="e-s-line"><a>
+                                <button id="donation"
+                                        style="border: none; background: none;color: #f3f3f3; font-family: Montserrat;padding: 0;font-style: normal;font-weight: 500;font-size: 1.1vw;">
+                                    Donation
+                                </button>
+                            </a></div>
+                            <img class="e-s-img lazyload" loading="lazy" src="./sources/Arrow.svg" style="left: 0.1vw"/>
+                        </div>
+
+                        <div>
+                            <div class="e-s-line"><a href="https://twitter.com/skool_l" target="_blank">Twitter</a>
+                            </div>
+                            <img class="e-s-img lazyload" loading="lazy" src="./sources/Arrow.svg"
+                                 style="left: -0.75vw"/>
+                        </div>
+
+                        <div>
+                            <div class="e-s-line"><a href="https://www.instagram.com/skoollnft"
+                                                     target="_blank">Instagram</a>
+                            </div>
+                            <img class="e-s-img lazyload" loading="lazy" src="./sources/Arrow.svg" style="left: 0.3vw"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="not-container">
+</div>
+<script type="text/javascript">window.onload = function () {
+    document.getElementById("pre-loader").style.display = 'none'
+}
+</script>
+<script src="../src/scripts/jquery.color.js"></script>
+</body>
+
+</html>
